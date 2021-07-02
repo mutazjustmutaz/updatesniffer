@@ -1,12 +1,12 @@
 
-This is a batch file I use to check the availability of updates for the applications I installed on Windows. Since the basic concept is the same for all applications, I have only included the code that deals with one of them, which happens to be VirtualBox.
+  These are Windows shell scripts I use to check the availability of updates for the applications installed on the operating system. One of them is a batch file for the command shell while the other is for the PowerShell. They both serve the same purpose.
+  Since the basic concept is the same for all applications, I have included the code that deals with only one of them (VirtualBox) as an example.
+  For debugging purposes, the version numbers for both installed and website versions are echoed out right after they're determined.
 
-The first for loop fetches the version number of the installed application. The nested for loop removes the unnecessary part of the version number.
+NOTES:
+updatesniffer.bat: To make for a better user experience, I turned echo off and made curl silent.
 
-The third for loop fetches the webpage where the software versions are listed, plucks out the relevant line, and extracts the number of the current version.
-
-The if statement compares the two version numbers and notifies the user if there's a more recent version.
-
-Notes:
-_To make for a better user experience, I turned echo off and made curl silent.
-_For debugging purposes, the version numbers for both installed and website versions are echoed out after they're determined.
+updatesniffer.ps1: There are 2 ways to retrieve data about installed software, the first is to request data about the applications that were installed using a Windows installer while the second is to request data about the applications that registered an uninstaller. The installer method has 2 problems: 
+1-It doesn't guarantee that all applications will be included, because there may be applications that weren't installed using a Windows installer.
+2-It's slow.
+Consequently, I used the uninstaller method.
