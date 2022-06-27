@@ -1,5 +1,7 @@
 @echo off
 
+::Update: From the Windows documentation:"The WMI command-line (WMIC) utility is deprecated as of Windows 10, version 21H1"
+
 ::VirtualBox
 ::retrieve version number of installed application
 for /f "tokens=2 delims==" %%A in (
